@@ -15,38 +15,38 @@ public class StepTracker {
 
     void addNewNumberStepsPerDay() {
         System.out.println("Введите номер месяца");
-        int month = checkTheInput(scanner, 1, 12, "Введите номер месяца от 1 до 12 (включительно)");    // ввод и проверка номера месяца
+        int month = checkTheInput(scanner, 1, 12, "Введите номер месяца от 1 до 12 (включительно)");
 
         System.out.println("Введите день от 1 до 30 (включительно)");
-        int day = checkTheInput(scanner, 1, 30, "Введите день от 1 до 30 (включительно)");  // ввод и проверка дня
+        int day = checkTheInput(scanner, 1, 30, "Введите день от 1 до 30 (включительно)");
 
         System.out.println("Введите количество шагов");
-        int steps = checkTheInput(scanner, 1, Integer.MAX_VALUE, "Введите количество шагов от 1");  // ввод и проверка количества шагов
+        int steps = checkTheInput(scanner, 1, Integer.MAX_VALUE, "Введите количество шагов от 1");
 
-        MonthData monthData = monthToData[month - 1];   // Получение соответствующего объекта MonthData из массива
+        MonthData monthData = monthToData[month - 1];
 
-        monthData.days[day - 1] = steps;    // Сохранение полученных данных
+        monthData.days[day - 1] = steps;
     }
 
     void changeStepGoal() {
         System.out.println("Введите количество шагов отвечающее за цель шагов в день");
-        goalByStepsPerDay = checkTheInput(scanner, 1, Integer.MAX_VALUE, "Введите количество шагов отвечающее за цель шагов в день от 1");  // ввод и проверка количества шагов
+        goalByStepsPerDay = checkTheInput(scanner, 1, Integer.MAX_VALUE, "Введите количество шагов отвечающее за цель шагов в день от 1");
     }
 
     void printStatistic() {
         System.out.println("Введите число месяца");
-        int monthData = checkTheInput(scanner, 1, 12, "Введите число месяца от 1 до 12 (включительно)");    // ввод и проверка номера месяца
-        monthData = monthData - 1;    // получение соответствующего месяца
+        int monthData = checkTheInput(scanner, 1, 12, "Введите число месяца от 1 до 12 (включительно)");
+        monthData = monthData - 1;
 
-        int sumSteps = monthToData[monthData].sumStepsFromMonth();  // получение суммы шагов за месяц
-        monthToData[monthData].printDaysAndStepsFromMonth();    // вывод общей статистики по дням
-        System.out.println("Сумма шагов за месяц: " + sumSteps);    // вывод суммы шагов за месяц
-        System.out.println("Максимально пройденное количество шагов за месяц: " + monthToData[monthData].maxSteps());   // вывод максимального пройденного количества шагов за месяц
-        System.out.println("Среднее пройденного количества шагов за месяц: " + (sumSteps / 30));    // вывод среднего пройденного количества шагов за месяц
-        System.out.println("Пройденной за месяц дистанции в км: " + converter.convertToKm(sumSteps));     // вывод пройденной за месяц дистанции в км
-        System.out.println("Количества сожжённых килокалорий за месяц: " + converter.convertStepsToKilocalories(sumSteps));  // вывод количества сожжённых килокалорий за месяц
-        System.out.println("Лучшая серия за месяц: " + monthToData[monthData].bestSeries(goalByStepsPerDay));   // вывод лучшей серии
-        System.out.println();   //дополнительный перенос строки
+        int sumSteps = monthToData[monthData].sumStepsFromMonth();
+        monthToData[monthData].printDaysAndStepsFromMonth();
+        System.out.println("Сумма шагов за месяц: " + sumSteps);
+        System.out.println("Максимально пройденное количество шагов за месяц: " + monthToData[monthData].maxSteps());
+        System.out.println("Среднее пройденного количества шагов за месяц: " + (sumSteps / 30));
+        System.out.println("Пройденной за месяц дистанции в км: " + converter.convertToKm(sumSteps));
+        System.out.println("Количества сожжённых килокалорий за месяц: " + converter.convertStepsToKilocalories(sumSteps));
+        System.out.println("Лучшая серия за месяц: " + monthToData[monthData].bestSeries(goalByStepsPerDay));
+        System.out.println();
     }
 
     /**

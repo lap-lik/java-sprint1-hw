@@ -3,7 +3,7 @@ public class MonthData {
 
     void printDaysAndStepsFromMonth() {
         for (int i = 0; i < days.length; i++) {
-            System.out.println(i + 1 + " день: " + days[i]);    // Вывод элементов массива в необходимом формате
+            System.out.println(i + 1 + " день: " + days[i]);
         }
     }
 
@@ -12,7 +12,7 @@ public class MonthData {
         for (int i = 0; i < days.length; i++) {
             sumSteps += days[i];
         }
-        return sumSteps;    // подсчёт суммы элементов массива days[]
+        return sumSteps;
     }
 
     int maxSteps() {
@@ -22,7 +22,7 @@ public class MonthData {
                 maxSteps = days[i];
             }
         }
-        return maxSteps;    // поиск максимального элемента
+        return maxSteps;
     }
 
     int bestSeries(int goalByStepsPerDay) {
@@ -38,6 +38,6 @@ public class MonthData {
                 currentSeries = 0;
             }
         }
-        return finalSeries;     // поиск максимальной серии
+        return finalSeries;
     }
 }
